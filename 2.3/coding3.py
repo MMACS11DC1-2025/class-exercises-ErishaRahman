@@ -25,3 +25,39 @@ Would you like fries for $3? (Yes/No)
 > yes
 Your total is $3.42
 """
+price = 0
+
+yes = "Yes"
+no = "No"
+
+    
+inputanswer=input("Would you like a burger for 5 dollars?")
+if inputanswer.strip().lower() == yes.strip().lower():
+
+    price = price +5
+    
+    
+elif inputanswer.strip().lower() == no.strip().lower():
+
+    price = price +0
+
+else:
+    print("ill take that as no???")
+    
+    
+inputanswer=input("Would you like fries for 3 dollars?")
+if inputanswer.strip().lower() == yes.strip().lower():
+
+    price = price +3
+    
+    
+elif inputanswer.strip().lower() == no.strip().lower():
+
+    price = price +0
+
+else:
+    print("ill take that as no???")
+
+
+print(str(price) + " is your total")
+
