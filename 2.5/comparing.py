@@ -17,16 +17,14 @@ col1 = line[1]
 print(col1 == line[6])
 """
 for line in file:
-    if lineinput in line.lower():
+    if str(lineinput) in line.lower():
         lineinput = line.split(",")
-        print("greetings" + lineinput[1] + ".\n")
-       
-
-        """
-    if lineinput2 in line.lower():
-        print(line)
-        myline = line
-"""
+        print("greetings" + str(lineinput[1]) + ".\n")
+   
+    if str(lineinput2) in line.lower():
+        lineinput2 = line.split(",")
+        print("greetings" + str(lineinput2[1]) + ".\n")
+        print(lineinput[6] == lineinput2[6])
 
 
 
