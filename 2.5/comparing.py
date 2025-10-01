@@ -9,14 +9,19 @@ Test as you go! Describe in your comments what steps you took to test your code.
 
 file = open("2.4/responses.csv")
 lineinput = input("whats your name?").lower().strip()
+lineinput2 = input("who are you comparing yourself to?").lower().strip()
+
+
 for line in file:
     if lineinput in line.lower():
         print(line)
         myline = line
+    if lineinput2 in line.lower():
+        print(line)
+        myline = line
 
-lineinput2 = input("who are you comparing yourself to?").lower().strip()
-if lineinput2 in line.lower():
-    print(line)
-    myline = line
-   
+
+
+
+
 
