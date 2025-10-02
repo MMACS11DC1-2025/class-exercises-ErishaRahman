@@ -8,23 +8,83 @@ Test as you go! Describe in your comments what steps you took to test your code.
 """
 
 file = open("2.4/responses.csv")
-lineinput = input("whats your name?").lower()
-lineinput2 = input("who are you comparing yourself to?").lower().strip()
-"""
-##fileList = file.read().strip().split("\n")
-line = fileList[22].split(',')
-col1 = line[1]
-print(col1 == line[6])
-"""
+score = 0
+lineinput = input("whats your name?\n").lower()
+
 for line in file:
     if str(lineinput) in line.lower():
         lineinput = line.split(",")
-        print("greetings" + str(lineinput[1]) + ".\n")
-   
-    if str(lineinput2) in line.lower():
-        lineinput2 = line.split(",")
-        print("greetings" + str(lineinput2[1]) + ".\n")
-        print(lineinput[6] == lineinput2[6])
+        print("greetings " + str(lineinput[1]) + ".\n")
+        identifier = int(lineinput[0]) # grabs id of name entered
+
+
+with open("2.4/responses.csv", "r") as file: #when its open idk what to tell u
+    all_lines = file.readlines()
+
+    iteration = -1 # set at -1 to register the first line as line 0 so its like easier to work out
+    for line in all_lines:
+        iteration = iteration + 1 # amount of times the loop has happened
+        if iteration == identifier: # checks if the line # matches the identifier(id) we have (ex line 3= id 3)
+            line = line.split(",") # splits the line into a list 
+            break # stops when the identifier actually matches
+
+
+    #first loop is for compared users(CU) this one is for imputing user(IU)
+
+    iteration = -1 # reset iteration because new loop
+    for lineinput in all_lines: # lineinput is used for IU now augurhshu (kinda why its called input idk man)
+        iteration = iteration + 1
+        if iteration == 0 or iteration == 0 or iteration == identifier: # ignoring the base & IU (u wanna compare w yo self????)
+            continue
+        lineinput = lineinput.split(",") 
+        # use lineinput[number of that list item yk the drill] to check if a thing matches (if yk how :((()
+        # use lineinput to compare against line[#] information
+    #for lineinput in all_lines:
+    #PLEASE WORK I WANNA GO TO BED PLEASEEEPLEASEPLEASEPLEASEPLEASEPLEASEPLEASE
+    print(lineinput[1])
+    print(line[2])
+
+
+
+for line in all_lines:
+
+    if line[2] == lineinput[2]:
+            score[iteration] = score[iteration] + 1 # adds new score
+
+
+    if line[3] == lineinput[3]:
+            score[iteration] = score[iteration] + 1 # adds new score
+
+    if line[4] == lineinput[4]:
+            score[iteration] = score[iteration] + 1 # adds new score
+
+    if line[5] == lineinput[5]:
+            score[iteration] = score[iteration] + 1 # adds new score
+
+    if line[6] == lineinput[6]:
+            score[iteration] = score[iteration] + 1 # adds new score
+
+    if line[7] == lineinput[7]:
+            score[iteration] = score[iteration] + 1 # adds new score
+
+    if line[8] == lineinput[8]: 
+            score[iteration] = score[iteration] + 1 # adds new score
+
+
+
+
+print("hi!")
+
+    # outside for loop
+    # loop everything in score[]
+    # find highest score
+    # print winner 
+
+
+\
+    
+
+        
 
 
 
