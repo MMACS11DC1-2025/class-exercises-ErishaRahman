@@ -16,6 +16,7 @@ for line in file:
         lineinput = line.split(",")
         print("greetings " + str(lineinput[1]) + ".\n")
         identifier = int(lineinput[0]) # grabs id of name entered
+        print(lineinput[0])
 
 
 with open("2.4/responses.csv", "r") as file: #when its open idk what to tell u
@@ -28,26 +29,18 @@ with open("2.4/responses.csv", "r") as file: #when its open idk what to tell u
             line = line.split(",") # splits the line into a list 
             break # stops when the identifier actually matches
 
-
-    #first loop is for compared users(CU) this one is for imputing user(IU)
-
-    iteration = -1 # reset iteration because new loop
-    for lineinput in all_lines: # lineinput is used for IU now augurhshu (kinda why its called input idk man)
-        iteration = iteration + 1
-        if iteration == 0 or iteration == 0 or iteration == identifier: # ignoring the base & IU (u wanna compare w yo self????)
-            continue
-        lineinput = lineinput.split(",") 
-        # use lineinput[number of that list item yk the drill] to check if a thing matches (if yk how :((()
-        # use lineinput to compare against line[#] information
-    #for lineinput in all_lines:
     #PLEASE WORK I WANNA GO TO BED PLEASEEEPLEASEPLEASEPLEASEPLEASEPLEASEPLEASE
-    print(lineinput[1])
-    print(line[2])
-
-
+print(lineinput[1])
+print(lineinput[0])
+print(line[2])
 
 for line in all_lines:
+    if line[2] == lineinput[2]:
+        print("kothar batcha")
 
+'''
+for line in all_lines:
++
     if line[2] == lineinput[2]:
             score[iteration] = score[iteration] + 1 # adds new score
 
@@ -70,7 +63,7 @@ for line in all_lines:
     if line[8] == lineinput[8]: 
             score[iteration] = score[iteration] + 1 # adds new score
 
-
+'''
 
 
 print("hi!")
