@@ -28,35 +28,48 @@ for line in file:
 if lineoutputsplit[2] in lineinputsplit[2]:
     print("You both like the number " + lineoutputsplit[2] + "!")
     name = name+1
-
+else:
+    print("You two don't like the same number")
 
 if lineoutputsplit[3] in lineinputsplit[3]:
     print("You both like " + lineoutputsplit[3] + " as pets!")
     name = name+1
+else:
+    print("You two don't like the same pet")
 
 if lineoutputsplit[4] in lineinputsplit[4]:
     print("You both like " + lineoutputsplit[4] + " the best out of all your subjects!")
     name = name+1
+else:
+    print("You two don't like the same subject")
 
 if lineoutputsplit[5] in lineinputsplit[5]:
-    print("You both like the number " + lineoutputsplit[5] + "!")
-    name = name+1
+    print("You both like playing " + lineoutputsplit[5] + "!")
+    name = name+1  
+else:  
+    print("You two don't like the same sport")              
 
 if lineoutputsplit[6] in lineinputsplit[6]:
-    print("You both like playing " + lineoutputsplit[6] + "!")
-    name = name+1                
+    print("You both like watching " + lineoutputsplit[6] + "!")
+    name = name+1
+else:    
+    print("You two don't like the same sports media")
 
 if lineoutputsplit[7] in lineinputsplit[7]:
-    print("You both like watching " + lineoutputsplit[7] + "!")
+    print("You both like the music genre " + lineoutputsplit[7] + "!")
     name = name+1
 
 if lineoutputsplit[8] in lineinputsplit[8]:
-    print("You both like the music genre " + lineoutputsplit[8] + "!")
+    print("You both like the media genre " + lineoutputsplit[8] + "!")
     name = name+1
+else:    
+    print("You two don't like the same media genre")    
 
 if lineoutputsplit[9] in lineinputsplit[9]:
     print("You both like " + lineoutputsplit[9]+"!")
     name = name+1
+else:    
+    print("You two don't like the same food")
 
 
 
