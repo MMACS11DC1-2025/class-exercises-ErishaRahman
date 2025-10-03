@@ -10,24 +10,39 @@ Test as you go! Describe in your comments what steps you took to test your code.
 file = open("2.4/responses.csv")
 score = 0
 lineinput = input("whats your name?\n").lower()
+lineoutput = input("who are you curious about\n").lower()
 
 for line in file:
     if str(lineinput) in line.lower():
         lineinput = line.split(",")
-        print("greetings " + str(lineinput[1]) + ".\n")
-        identifier = int(lineinput[0]) # grabs id of name entered
-        print(lineinput[0])
+        #identifier = int(lineinput[0]) # grabs id of name entered
+        print(lineinput[1])
 
+    if str(lineoutput) in line.lower():
+        lineoutput = line.split(",")
+        #identifier = int(lineoutput[0]) # grabs id of name entered
+        #print(lineoutput[2])
+        print(lineinput[2])
 
+print(lineinput[2] == lineoutput[2])
+    #print("greetings " + str(lineinput[1]) + ".\n")
+    #print("curious about " + str(lineoutput[1]) + " are you?\n")
+
+"""
 with open("2.4/responses.csv", "r") as file: #when its open idk what to tell u
     all_lines = file.readlines()
 
-    iteration = -1 # set at -1 to register the first line as line 0 so its like easier to work out
-    for line in all_lines:
+lineoutput = line.split(",")
+print("greetings " + str(lineoutput[1]) + ".\n")
+identifier = int(lineoutput[0])
+print(lineoutput[0])
+
+iteration = -1 # set at -1 to register the first line as line 0 so its like easier to work out
+for line in all_lines:
         iteration = iteration + 1 # amount of times the loop has happened
         if iteration == identifier: # checks if the line # matches the identifier(id) we have (ex line 3= id 3)
-            line = line.split(",") # splits the line into a list 
-            break # stops when the identifier actually matches
+                line = line.split(",") # splits the line into a list 
+                break # stops when the identifier actually matches
 
     #PLEASE WORK I WANNA GO TO BED PLEASEEEPLEASEPLEASEPLEASEPLEASEPLEASEPLEASE
 print(lineinput[1])
@@ -77,7 +92,7 @@ print("hi!")
 \
     
 
-        
+"""      
 
 
 
