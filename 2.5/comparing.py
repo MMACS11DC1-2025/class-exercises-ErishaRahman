@@ -8,92 +8,71 @@ Test as you go! Describe in your comments what steps you took to test your code.
 """
 
 file = open("2.4/responses.csv")
-score = 0
+name = 0
 lineinput = input("whats your name?\n").lower()
 lineoutput = input("who are you curious about\n").lower()
-
+lineinputsplit = []
+lineoutputsplit = []
 for line in file:
     if str(lineinput) in line.lower():
-        lineinput = line.split(",")
+        lineinputsplit = line.split(",")
         #identifier = int(lineinput[0]) # grabs id of name entered
-        print(lineinput[1])
+        print(lineinputsplit[1])
 
     if str(lineoutput) in line.lower():
-        lineoutput = line.split(",")
+        lineoutputsplit = line.split(",")
         #identifier = int(lineoutput[0]) # grabs id of name entered
         #print(lineoutput[2])
-        print(lineinput[2])
+        print(lineoutputsplit[2])
 
-print(lineinput[2] == lineoutput[2])
-    #print("greetings " + str(lineinput[1]) + ".\n")
-    #print("curious about " + str(lineoutput[1]) + " are you?\n")
-
-"""
-with open("2.4/responses.csv", "r") as file: #when its open idk what to tell u
-    all_lines = file.readlines()
-
-lineoutput = line.split(",")
-print("greetings " + str(lineoutput[1]) + ".\n")
-identifier = int(lineoutput[0])
-print(lineoutput[0])
-
-iteration = -1 # set at -1 to register the first line as line 0 so its like easier to work out
-for line in all_lines:
-        iteration = iteration + 1 # amount of times the loop has happened
-        if iteration == identifier: # checks if the line # matches the identifier(id) we have (ex line 3= id 3)
-                line = line.split(",") # splits the line into a list 
-                break # stops when the identifier actually matches
-
-    #PLEASE WORK I WANNA GO TO BED PLEASEEEPLEASEPLEASEPLEASEPLEASEPLEASEPLEASE
-print(lineinput[1])
-print(lineinput[0])
-print(line[2])
-
-for line in all_lines:
-    if line[2] == lineinput[2]:
-        print("kothar batcha")
-
-'''
-for line in all_lines:
-+
-    if line[2] == lineinput[2]:
-            score[iteration] = score[iteration] + 1 # adds new score
+if lineoutputsplit[2] in lineinputsplit[2]:
+    print("You both like the number " + lineoutputsplit[2] + "!")
+    name = name+1
 
 
-    if line[3] == lineinput[3]:
-            score[iteration] = score[iteration] + 1 # adds new score
+if lineoutputsplit[3] in lineinputsplit[3]:
+    print("You both like " + lineoutputsplit[3] + " as pets!")
+    name = name+1
 
-    if line[4] == lineinput[4]:
-            score[iteration] = score[iteration] + 1 # adds new score
+if lineoutputsplit[4] in lineinputsplit[4]:
+    print("You both like " + lineoutputsplit[4] + " the best out of all your subjects!")
+    name = name+1
 
-    if line[5] == lineinput[5]:
-            score[iteration] = score[iteration] + 1 # adds new score
+if lineoutputsplit[5] in lineinputsplit[5]:
+    print("You both like the number " + lineoutputsplit[5] + "!")
+    name = name+1
 
-    if line[6] == lineinput[6]:
-            score[iteration] = score[iteration] + 1 # adds new score
+if lineoutputsplit[6] in lineinputsplit[6]:
+    print("You both like playing " + lineoutputsplit[6] + "!")
+    name = name+1                
 
-    if line[7] == lineinput[7]:
-            score[iteration] = score[iteration] + 1 # adds new score
+if lineoutputsplit[7] in lineinputsplit[7]:
+    print("You both like watching " + lineoutputsplit[7] + "!")
+    name = name+1
 
-    if line[8] == lineinput[8]: 
-            score[iteration] = score[iteration] + 1 # adds new score
+if lineoutputsplit[8] in lineinputsplit[8]:
+    print("You both like the music genre " + lineoutputsplit[8] + "!")
+    name = name+1
 
-'''
-
-
-print("hi!")
-
-    # outside for loop
-    # loop everything in score[]
-    # find highest score
-    # print winner 
+if lineoutputsplit[9] in lineinputsplit[9]:
+    print("You both like " + lineoutputsplit[9]+"!")
+    name = name+1
 
 
-\
+
+if name <= 4:
+    print("You two don't have much in common")
+elif name > 4 and name <= 6:
+    print("You two have some things in common")
+elif name > 6 and name <= 8:
+    print("You two have a lot in common")
+elif name >= 8:
+    print("You two are like twins!")
+else: 
+    print("it seems this didn't work")
     
-
-"""      
-
+print(name)
+print(lineinputsplit[2] == lineoutputsplit[2])
 
 
 
