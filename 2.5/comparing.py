@@ -31,16 +31,17 @@ for line in file:
         lineinputsplit = line.split(",")
         #identifier = int(lineinput[0])
         #print(lineinputsplit[1])
-    else:#enter the name right or else.
-        quit("oops, you might have misspelled your name, please try again")
+
+    #else:#enter the name right or else.
+        #quit("oops, you might have misspelled your name, please try again")
 
     if str(lineoutput) in line.lower():
         lineoutputsplit = line.split(",")
         #identifier = int(lineoutput[0]) 
         #print(lineoutput[2])
         #print(lineoutputsplit[2])
-    else:
-        quit("oops, you might have misspelled their name, please try again")
+    #else:
+        #quit("oops, you might have misspelled their name, please try again")
 
 
 #compares and counts shared interests
