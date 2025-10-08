@@ -1,52 +1,113 @@
-"""
-Create a program that uses counting and comparison operators (< > <= >=).
-You must use the class' datafile, 'responses.csv' and analyze it
-    to make at least 2 interesting observations.
-You must use user input to add interactivity to the program.
-You must design your algorithm in English first, then translate it to Python code.
-Test as you go! Describe in your comments what steps you took to test your code.
+#Hello! This program will help you compare your interests with another person from the mini school 10 class!
+#It will also recommend things based on their interests if you two dont have much in common
+#I used a csv file to store the data, so make sure its in the same folder
 
 
-1. get names from two people you want to compare 
-2. compare them and 
-    add a point if they match
-    add their choice to the recs list using append
-3. print compatibility outcomes
-"""
 #simple stuff, get their names and assign them to variables
 #and split
 file = open("2.4/responses.csv")
+
 shared = 0
+errorone = 0
+errortwo = 0
+
 print("Hello! ill help you compare your interests with another person from the mini school 10 class!")
-lineinput = input("whats your name?\n").lower()
-lineoutput = input("who are you curious about\n").lower()
+
+lineinput = input("whats your name?\n").strip().lower()
+lineoutput = input("who are you curious about\n").strip().lower()
 
 lineinputsplit = []
 lineoutputsplit = []
 
 recs = []
 
+
 for line in file:
     if str(lineinput) in line.lower():
         lineinputsplit = line.split(",")
+
+        #testing stuff
         #identifier = int(lineinput[0])
         #print(lineinputsplit[1])
-
-    #else:#enter the name right or else.
-        #quit("oops, you might have misspelled your name, please try again")
+        
+    else: #incase of misspelling
+        errorone = errorone + 1
+        
 
     if str(lineoutput) in line.lower():
         lineoutputsplit = line.split(",")
+
+        #testing
         #identifier = int(lineoutput[0]) 
         #print(lineoutput[2])
         #print(lineoutputsplit[2])
-    #else:
-        #quit("oops, you might have misspelled their name, please try again")
 
+    else:  
+        errortwo = errortwo + 1
+
+#when mispell
+if errorone >= 28:
+    quit("oops, you might have misspelled a name, please try again") 
+
+if errortwo >= 28:
+    quit("oops, you might have misspelled a names, please try again")
+
+# code testing booooo
+#if str(lineinput) not in file.read().lower():
+    #quit("oops, you might have misspelled one of the names, please try again")
 
 #compares and counts shared interests
 #adds to recs if not shared
 print("\nAlright, lets see how compatible you two are!\n")
+
+#i separated the number part because that rec doent make sense
+if lineoutputsplit[2] in lineinputsplit[2]:
+    print("You both like the number " + lineoutputsplit[2] + "!")
+    shared = shared+1
+#loop to make it less repetitive
+for i in range(3,8):
+    if lineoutputsplit[i] in lineinputsplit[i]:
+        print("You both like the number " + lineoutputsplit[i] + "!")
+        shared = shared+1
+    else:
+        recs.append(lineoutputsplit[i])
+
+pervalue = (shared/8) * 100
+print("You (" + lineinputsplit[1] +") are compatible with " + lineoutputsplit[1] + " by " + str(pervalue) + "%\n")
+#different dialoge omg
+if shared <= 2:
+    print("You two don't have much in common, so i cannot recommend anything based on their interests, sorry.")
+elif shared > 2 and shared <= 4:
+    print("You two have some things in common, so you might like, ")
+    print(", ".join(recs))
+elif shared > 4 and shared <= 7:
+    print("You two have a lot in common, so i would definitely recommend,")
+    print(", ".join(recs))
+elif shared == 8:
+    print("You guys are twins, arent you?")
+else: 
+    print("it seems this didn't work, sorry")
+
+#print(lineinputsplit[2] == lineoutputsplit[2])
+#print(recs)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#old ugly codeeeeee
+"""
 if lineoutputsplit[2] in lineinputsplit[2]:
     print("You both like the number " + lineoutputsplit[2] + "!")
     shared = shared+1
@@ -104,25 +165,4 @@ else:
     recs.append(lineoutputsplit[9])
 #get that percent ready OH YEAH
 #print(shared)
-
-pervalue = (shared/8) * 100
-print("You (" + lineinputsplit[1] +") are compatible with " + lineoutputsplit[1] + " by " + str(pervalue) + "%\n")
-#different dialoge omg
-if shared <= 2:
-    print("You two don't have much in common, so i cannot recommend anything based on their interests, sorry.")
-elif shared > 2 and shared <= 4:
-    print("You two have some things in common, so you might like, ")
-    print(", ".join(recs))
-elif shared > 4 and shared <= 7:
-    print("You two have a lot in common, so i would definitely recommend,")
-    print(", ".join(recs))
-elif shared == 8:
-    print("You guys are twins, arent you?")
-else: 
-    print("it seems this didn't work, sorry")
-
-#print(lineinputsplit[2] == lineoutputsplit[2])
-#print(recs)
-
-
-
+"""
