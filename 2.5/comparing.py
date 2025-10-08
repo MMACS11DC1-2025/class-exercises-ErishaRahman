@@ -67,7 +67,7 @@ if lineoutputsplit[2] in lineinputsplit[2]:
 #loop to make it less repetitive
 for i in range(3,8):
     if lineoutputsplit[i] in lineinputsplit[i]:
-        print("You both like the number " + lineoutputsplit[i] + "!")
+        print("You both like the " + lineoutputsplit[i] + "!")
         shared = shared+1
     else:
         recs.append(lineoutputsplit[i])
