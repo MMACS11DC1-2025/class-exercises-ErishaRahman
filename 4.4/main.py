@@ -22,7 +22,7 @@ def branch(size):
       #from vic my friend thank you vic your method is great)
       tool.forward(numb*1.35) #go down
       
-      tool.color(colors[green])
+      tool.color(colors['green'])
       tool.setheading(45)
       tool.forward(numb/2)  
       tool.setheading(15)  
@@ -36,7 +36,7 @@ def branch(size):
       tool.setheading(270)  # change the degress
       tool.forward(numb*0.25)  #go down
       
-      tool.color(green)
+      tool.color(colors['green'])
       tool.setheading(180)
       tool.forward(numb/2) 
       tool.setheading(250)  
@@ -65,3 +65,5 @@ def swirl(size):
 tool.pendown()
 swirl(numb)
 branch(numb)
+
+#test case 1 (: 
