@@ -45,11 +45,11 @@ You'll create a fractal generator that can draw at least one recursive pattern (
 - [2] Includes meaningful comments that explain the logic and steps taken in the code. (2 pts)
 
 ### **Documentation & Process**
-- [ ] README.md file with project documentation explaining the approach used and how to use the program (2 pts)
-- [ ] Code must be well commented to enhance readability (2 pts)
-- [★] Test cases with expected vs actual results (2 pts)
+- [2] README.md file with project documentation explaining the approach used and how to use the program (2 pts)
+- [2] Code must be well commented to enhance readability (2 pts)
+- [2] Test cases with expected vs actual results (2 pts)
 - [ ] Screenshots of visual outputs for each test case (2 pts)
-- [ ] Discussion of reasonable recursion depth (for your program, what depth is too low, what is too high, and why?) (2 pts)
+- [2] Discussion of reasonable recursion depth (for your program, what depth is too low, what is too high, and why?) (2 pts)
 - [ ] Documentation of debugging and testing process in README.md (2 pts)
 - [] Source code is committed to repository on Github with **at least 3 meaningful commits on different days** (2 pts)
 
@@ -59,16 +59,16 @@ You'll create a fractal generator that can draw at least one recursive pattern (
 ## **ADVANCED CRITERIA** (1 point each) ★
 
 ### **Advanced Features**
-- [ ] More complex or creative use of recursion (this may include: multiple base cases, multiple recursive calls, or multiple recursive functions) (1 pt)
-- [ ] Advanced user inputs and error checking (1 pt)
+- [.5? weird swirl thing?] More complex or creative use of recursion (this may include: multiple base cases, multiple recursive calls, or multiple recursive functions) (1 pt)
+- [ 0.5?] Advanced user inputs and error checking (1 pt)
 - [ ] Sophisticated return value usage beyond basic requirement (1 pt)
 
 ### **Creative & Process Elements**
-- [ ] Unique visual patterns or creative approaches (1 pt)
+- [1 ] Unique visual patterns or creative approaches (1 pt)
 - [ ] Comprehensive testing documentation (1 pt)
-- [ ] Documentation explains recursive approach (1 pt)
-- [ ] Documentation explains how different inputs affect output (1 pt)
-- [ ] Documentation of challenges overcome during development (1 pt)
+- [1] Documentation explains recursive approach (1 pt)
+- [1] Documentation explains how different inputs affect output (1 pt)
+- [1] Documentation of challenges overcome during development (1 pt)
 
 ## **SUBMISSION REQUIREMENTS**
 
