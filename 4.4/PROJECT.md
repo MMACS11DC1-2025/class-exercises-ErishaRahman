@@ -26,12 +26,12 @@ You'll create a fractal generator that can draw at least one recursive pattern (
 - [2] At least one recursive function defined with proper parameters (2 pts)
 - [2] Proper base case implemented to stop recursion (2 pts)
 - [2] Recursive calls reduce problem size toward base case (2 pts)
-- [★] Function returns meaningful values (not just drawing) (2 pts)
+- [2] Function returns meaningful values (not just drawing) (2 pts)
 - [2] At least one user input to dynamically generate graphics (2 pts)
 - [2] Program prints the total count of recursive function calls executed (2 pts)
 
 ### **Data Structures & Organization**
-- [★] Use a dictionary to store fractal settings (2 pts)
+- [2] Use a dictionary to store fractal settings (2 pts)
 - [2] Dictionary keys clearly named and organized (2 pts)
 - [2] Values include configuration, colors, or descriptions (2 pts)
 
@@ -48,10 +48,10 @@ You'll create a fractal generator that can draw at least one recursive pattern (
 - [2] README.md file with project documentation explaining the approach used and how to use the program (2 pts)
 - [2] Code must be well commented to enhance readability (2 pts)
 - [2] Test cases with expected vs actual results (2 pts)
-- [ ] Screenshots of visual outputs for each test case (2 pts)
+- [2] Screenshots of visual outputs for each test case (2 pts)
 - [2] Discussion of reasonable recursion depth (for your program, what depth is too low, what is too high, and why?) (2 pts)
-- [ ] Documentation of debugging and testing process in README.md (2 pts)
-- [] Source code is committed to repository on Github with **at least 3 meaningful commits on different days** (2 pts)
+- [1] Documentation of debugging and testing process in README.md (2 pts)
+- [2] Source code is committed to repository on Github with **at least 3 meaningful commits on different days** (2 pts)
 
 ### **Peer Review**
 - [ ] Peer review completed with classmate. Feedback on code quality, approach, and any debugging techniques used are documented in README (2 pts)
@@ -61,11 +61,11 @@ You'll create a fractal generator that can draw at least one recursive pattern (
 ### **Advanced Features**
 - [.5? weird swirl thing?] More complex or creative use of recursion (this may include: multiple base cases, multiple recursive calls, or multiple recursive functions) (1 pt)
 - [ 0.5?] Advanced user inputs and error checking (1 pt)
-- [ ] Sophisticated return value usage beyond basic requirement (1 pt)
+- [0] Sophisticated return value usage beyond basic requirement (1 pt)
 
 ### **Creative & Process Elements**
-- [1 ] Unique visual patterns or creative approaches (1 pt)
-- [ ] Comprehensive testing documentation (1 pt)
+- [1] Unique visual patterns or creative approaches (1 pt)
+- [1] Comprehensive testing documentation (1 pt)
 - [1] Documentation explains recursive approach (1 pt)
 - [1] Documentation explains how different inputs affect output (1 pt)
 - [1] Documentation of challenges overcome during development (1 pt)
@@ -102,4 +102,3 @@ You'll create a fractal generator that can draw at least one recursive pattern (
 3. Document your process as you go - this will help with the README
 4. Think about edge cases - what happens when parameters are 0 or negative?
 5. Don't forget to include peer review in your final submission
-gfff
