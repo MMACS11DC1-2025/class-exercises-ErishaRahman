@@ -1,5 +1,6 @@
-# TURTLE RECURSIVE FLOWER PROJECT
-
+#⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰
+# 𐙚. ݁₊⋆❀˖° TURTLE RECURSIVE FLOWER PROJECT 𐙚. ݁₊⋆❀˖°
+#⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰
 #tests:
   # input test 1: enter 20, "FireBoy", enter "lighter" ==> 
     #smallest red flower, light brown stem, green leaves
@@ -15,7 +16,13 @@
     
   # input test 5: enter a number <=0
     #the program returns
-
+    
+  # input test 6: enter a number > 20, != "fireboy"/"watergirl",
+    #the program returns
+    
+  # input test 7: enter a number > 20, "fireboy"/"watergirl", != "lighter"/"darker"
+    #the program returns
+#⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰⊱✿⊰
 
 #imports/setting up
 import turtle
@@ -23,12 +30,19 @@ tool = turtle.Turtle()
 
 #user inputs for graphics
 num = input("how big woud you like your flower? The minimun is 20.")
-
-
-      
+if int(num) <= 0:
+  print("this number is invalid.")
+  exit()
+    
 character = input("FireBoy or WaterGirl").lower().strip()
-stemcolor = input("Would you like your stem lighter or darker?").lower().strip()
+if character not in ("fireboy", "watergirl"):
+  print("this value is invalid.")
+  exit()
 
+stemcolor = input("Would you like your stem lighter or darker?").lower().strip()
+if character not in ("lighter", "darker"):
+  print("this value is invalid.")
+  exit()
 numb = int(num)
 
 #color dictionary
@@ -90,9 +104,9 @@ def swirl(size):
       tool.forward(2+size/4)
       tool.left(30-size/12)
       swirl(size - 1) #what leads to the base case
-      #decreases the distance and increases the rotation 
+      #increases the distance and decreases the rotation 
       #to properly execute drawing the swirl
-      #(i found this idea online--)
+      #(i found this idea online)
       
 
 #the actual execution of the code
