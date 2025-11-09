@@ -1,8 +1,4 @@
-# ‧₊˚❀༉‧₊˚flower recursions˚₊‧༉❀˚₊‧
-
-#overview: draws a flower as a recursive swirl with a stem, and leaves.
-#recursion: the function "swirl(size)" takes one from size each call, forming a spiral until size is 0.
-#run: enter size (min 20), FireBoy/WaterGirl, and lighter/darker stem.
+# TURTLE RECURSIVE FLOWER PROJECT
 
 #tests:
   # input test 1: enter 20, "FireBoy", enter "lighter" ==> 
@@ -20,13 +16,6 @@
   # input test 5: enter a number <=0
     #the program returns
 
-#20 is the minimun since that number creates the smallest swirl possible
-  #the true minimum is 1, since thats the lowest you can go before the
-  #code doesnt run, though it will be difficult to view
-  #there is no actual maximun, unless the program crashes, since you can
-  #enlarge the screen to different sizes on different devices
-  #(though i reccomend not going over 150)
-#fixes: color key bug, angle tweaks, smoother swirl.
 
 #imports/setting up
 import turtle
@@ -101,9 +90,9 @@ def swirl(size):
       tool.forward(2+size/4)
       tool.left(30-size/12)
       swirl(size - 1) #what leads to the base case
-      #increases the distance and decreases the rotation 
+      #decreases the distance and increases the rotation 
       #to properly execute drawing the swirl
-      #(i found this idea online)
+      #(i found this idea online--)
       
 
 #the actual execution of the code
