@@ -1,5 +1,3 @@
-
-
 from PIL import Image
 import coolcolours
 
@@ -17,9 +15,8 @@ for x in range(width):
         g = image_green[x, y][1]
         b = image_green[x, y][2]
 
-if coolcolours.colour(r, g, b) == "green":
-    beach_colour = image_beach[x, y]
-    ij = (x,y)
-    image_output.putpixel((ij), beach_colour)
+        if coolcolours.colour(r, g, b) == "green":
+            beach_colour = image_beach[x, y]
+            image_output.putpixel((x,y), beach_colour)
 
 image_output.save("output.png", "png")
