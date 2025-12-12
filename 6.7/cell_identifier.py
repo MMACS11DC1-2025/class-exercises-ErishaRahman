@@ -13,27 +13,17 @@ file10 = Image.open("6.7/fatcells.jpg.jpg")
 
 files = [file1, file2, file3, file4, file5, file6, file7, file8, file9, file10]
 
+#green
+#yellow
+#llight brown shades??? (184, 137, 35)(140, 78, 3)
+#dark brown shades (94, 55, 17) (141, 92, 36)
+#darkest brown shades (71, 54, 48) (40, 26, 19)
+#black shades (35, 31, 32) (0, 0, 0)
+
+
+
 def classify_cell(r, g, b):
-    if 180 <= r <= 220 and 0 <= g <= 40 and 0 <= b <= 40:
-        return "red"
-    if 20 <= r <= 60 and 10 <= g <= 40 and 5 <= b <= 30:
-        return "black"
-    if 230 <= r <= 255 and 210 <= g <= 240 and 80 <= b <= 120:
-        return "yellow"
-    if 40 <= r <= 80 and 150 <= g <= 200 and 40 <= b <= 90:
-        return "green"
-    if 50 <= r <= 100 and 70 <= g <= 120 and 170 <= b <= 220:
-        return "blue"
-    if 120 <= r <= 170 and 40 <= g <= 80 and 140 <= b <= 200:
-        return "purple"
-    if 150 <= r <= 190 and 100 <= g <= 130 and 40 <= b <= 70:
-        return "brown"
-    if 220 <= r <= 255 and 150 <= g <= 190 and 40 <= b <= 70:
-        return "yellow_orange"
-    if 90 <= r <= 130 and 60 <= g <= 100 and 30 <= b <= 60:
-        return "brown_rich"
-    if 200 <= r <= 255 and 80 <= g <= 120 and 120 <= b <= 170:
-        return "pink"
+
     return "other"
 
 
