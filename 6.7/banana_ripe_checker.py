@@ -31,28 +31,22 @@ filesb = [fileb1, fileb2, fileb3, fileb4, fileb5, fileb6, fileb7, fileb8, fileb9
 #black shades (35, 31, 32) (0, 0, 0)
 
 def ripe_checker(r, g, b):
-    # White (Background - high values for all R, G, B)
-    if r > 240 and g > 240 and b > 240:
+    if r > 235 and g > 235 and b > 235:
         return "white"
 
-    # Green (Unripe/Tinge)
-    if g > r + 20 and g > b + 20 and g > 100:
+    if g > r + 10 and g > b + 10 and g > 60:
         return "green"
 
-    # Yellow (Ripe)
-    if r > 180 and g > 180 and b < 120:
+    if r > 170 and g > 170 and b < 150:
         return "yellow"
-
-    # Light Brown (Expanded significantly)
-    if r > g > b and r >= 150 and g >= 100 and b >= 50:
-        return "light_brown"
-
-    # Brown (Expanded significantly)
-    if r > g > b and r >= 90 and g >= 60 and b >= 30:
+    
+    if (
+        r > g and g >= b and
+        r >= 130 and g >= 90 and b >= 40
+    ):
         return "brown"
 
-    # Dark Brown/Black spots (Expanded significantly)
-    if r < 80 and g < 80 and b < 80:
+    if r < 120 and g < 120 and b < 120:
         return "black"
 
     return "other"
@@ -66,9 +60,7 @@ for i in range(len(filesb)):
     green_pixels = []
     yellow_pixels = []
     green_pixels = []
-    light_brown_pixels = []
     brown_pixels = []
-    dark_brown_pixels = []
     black_pixels = []
     width = files[i].width
     height = files[i].height
@@ -90,16 +82,11 @@ for i in range(len(filesb)):
 
             if cell == "yellow":
                 yellow_pixels.append(files[i].getpixel((x, y)))
-            
-            if cell == "light_brown":
-                light_brown_pixels.append(files[i].getpixel((x, y)))
+        
 
             if cell == "brown":
                 brown_pixels.append(files[i].getpixel((x, y)))
 
-            if cell == "dark_brown":
-                dark_brown_pixels.append(files[i].getpixel((x, y)))
-            
             if cell == "black":
                 black_pixels.append(files[i].getpixel((x, y)))
    
@@ -111,11 +98,9 @@ for i in range(len(filesb)):
 
     num_yellow = len(yellow_pixels)
 
-    num_light_brown = len(light_brown_pixels)
 
     num_brown = len(brown_pixels)
 
-    num_dark_brown = len(dark_brown_pixels)
 
     num_black = len(black_pixels)
 
@@ -125,19 +110,17 @@ for i in range(len(filesb)):
 
     concentration_yellow = num_yellow / total_pixels_banana
 
-    concentration_light_brown = num_light_brown / total_pixels_banana
+
 
     concentration_brown = num_brown / total_pixels_banana
 
-    concentration_dark_brown = num_dark_brown / total_pixels_banana
+
 
     concentration_black = num_black / total_pixels_banana
     print(files [i].filename)
     print("{:.3f}%".format(concentration_green * 100))
     print("{:.3f}%".format(concentration_yellow * 100))
-    print("{:.3f}%".format(concentration_light_brown * 100))
     print("{:.3f}%".format(concentration_brown * 100))
-    print("{:.3f}%".format(concentration_dark_brown * 100))
     print("{:.3f}%".format(concentration_black * 100))
 
             
