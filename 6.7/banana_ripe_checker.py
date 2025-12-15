@@ -11,6 +11,18 @@ file8 = Image.open("6.7/banana8.PNG")
 file9 = Image.open("6.7/banana9.PNG")
 file10 = Image.open("6.7/banana10.PNG")
 files = [file1, file2, file3, file4, file5, file6, file7, file8, file9, file10]
+
+fileb1 = file1.load()
+fileb2 = file2.load()
+fileb3 = file3.load()
+fileb4 = file4.load()
+fileb5 = file5.load()
+fileb6 = file6.load()
+fileb7 = file7.load()
+fileb8 = file8.load()
+fileb9 = file9.load()
+fileb10 = file10.load()
+filesb = [fileb1, fileb2, fileb3, fileb4, fileb5, fileb6, fileb7, fileb8, fileb9, fileb10]
 #green
 #yellow
 #llight brown shades??? (184, 137, 35)(140, 78, 3)
@@ -19,31 +31,34 @@ files = [file1, file2, file3, file4, file5, file6, file7, file8, file9, file10]
 #black shades (35, 31, 32) (0, 0, 0)
 
 def ripe_checker(r, g, b):
-    if r > 230 and r <= 255 and g > 230 and g <= 255 and b > 230 and b <= 255:
-        return ("white")
-    
-    if r < 25 and r >= 0 and g > 230 and g <= 255 and b < 25 and b >= 0:
-        return ("green")
-    
-    if r > 230 and r <= 255 and g > 230 and g <= 255 and b < 25 and b >= 0:
-        return ("yellow")
-    
-    if r < 185 and r >= 133 and g < 138 and g >= 78 and b > 36 and b <= 5:
-        return ("light_brown")
-    
-    if r < 142 and r >= 94 and g < 93 and g >= 55 and b > 37 and b <= 17:
-        return ("brown")
-    
-    if r < 72 and r >= 40 and g < 55 and g >= 26 and b > 49 and b <= 19:
-        return ("dark_brown")
-    
-    if r > 36 and r <= 0 and g < 32 and g >= 0 and b < 33 and b >= 0:
-        return ("black")
-    
+    # White (Background - high values for all R, G, B)
+    if r > 240 and g > 240 and b > 240:
+        return "white"
+
+    # Green (Unripe/Tinge)
+    if g > r + 20 and g > b + 20 and g > 100:
+        return "green"
+
+    # Yellow (Ripe)
+    if r > 180 and g > 180 and b < 120:
+        return "yellow"
+
+    # Light Brown (Expanded significantly)
+    if r > g > b and r >= 150 and g >= 100 and b >= 50:
+        return "light_brown"
+
+    # Brown (Expanded significantly)
+    if r > g > b and r >= 90 and g >= 60 and b >= 30:
+        return "brown"
+
+    # Dark Brown/Black spots (Expanded significantly)
+    if r < 80 and g < 80 and b < 80:
+        return "black"
+
     return "other"
 
 
-for i in range(10):
+for i in range(len(filesb)):
     '''
     pix = files[i].load()
     '''
@@ -61,10 +76,10 @@ for i in range(10):
  
     for x in range(width):
         for y in range(height):
-            pixel_r = files[i].getpixel((x, y))[0]
-            pixel_g = files[i].getpixel((x, y))[1]
-            pixel_b = files[i].getpixel((x, y))[2]
-
+            pixel_tuple = filesb[i][x, y]
+            pixel_r = pixel_tuple[0]
+            pixel_g = pixel_tuple[1]
+            pixel_b = pixel_tuple[2]
             cell = ripe_checker(pixel_r, pixel_g, pixel_b)
 
             if cell == "white":
@@ -90,40 +105,41 @@ for i in range(10):
    
             
         #rid of white cells input that or smth
-        num_white = len(white_pixels)
+    num_white = len(white_pixels)
 
-        num_green = len(green_pixels)
+    num_green = len(green_pixels)
 
-        num_yellow = len(yellow_pixels)
+    num_yellow = len(yellow_pixels)
 
-        num_light_brown = len(light_brown_pixels)
+    num_light_brown = len(light_brown_pixels)
 
-        num_brown = len(brown_pixels)
+    num_brown = len(brown_pixels)
 
-        num_dark_brown = len(dark_brown_pixels)
+    num_dark_brown = len(dark_brown_pixels)
 
-        num_black = len(black_pixels)
+    num_black = len(black_pixels)
 
-        total_pixels_banana = (width*height) - num_white
+    total_pixels_banana = (width*height) - num_white
 
-        concentration_green = num_green / total_pixels_banana
+    concentration_green = num_green / total_pixels_banana
 
-        concentration_yellow = num_yellow / total_pixels_banana
+    concentration_yellow = num_yellow / total_pixels_banana
 
-        concentration_light_brown = num_light_brown / total_pixels_banana
+    concentration_light_brown = num_light_brown / total_pixels_banana
 
-        concentration_brown = num_brown / total_pixels_banana
+    concentration_brown = num_brown / total_pixels_banana
 
-        concentration_dark_brown = num_dark_brown / total_pixels_banana
+    concentration_dark_brown = num_dark_brown / total_pixels_banana
 
-        concentration_black = num_black / total_pixels_banana
+    concentration_black = num_black / total_pixels_banana
+    print(files [i].filename)
+    print("{:.3f}%".format(concentration_green * 100))
+    print("{:.3f}%".format(concentration_yellow * 100))
+    print("{:.3f}%".format(concentration_light_brown * 100))
+    print("{:.3f}%".format(concentration_brown * 100))
+    print("{:.3f}%".format(concentration_dark_brown * 100))
+    print("{:.3f}%".format(concentration_black * 100))
 
-        print(concentration_green)
-        print(concentration_yellow)
-        print(concentration_light_brown)
-        print(concentration_brown)
-        print(concentration_dark_brown)
-        print(concentration_black)
             
 
             
