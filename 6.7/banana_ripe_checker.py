@@ -1,4 +1,5 @@
 from PIL import Image
+import time
 
 file1 = Image.open("6.7/banana1.PNG")
 file2 = Image.open("6.7/banana2.PNG")
@@ -23,13 +24,10 @@ fileb8 = file8.load()
 fileb9 = file9.load()
 fileb10 = file10.load()
 filesb = [fileb1, fileb2, fileb3, fileb4, fileb5, fileb6, fileb7, fileb8, fileb9, fileb10]
-#green
-#yellow
-#llight brown shades??? (184, 137, 35)(140, 78, 3)
-#dark brown shades (94, 55, 17) (141, 92, 36)
-#darkest brown shades (71, 54, 48) (40, 26, 19)
-#black shades (35, 31, 32) (0, 0, 0)
-
+veryunripe = []
+unripe = []
+ripe = []
+overripe = []
 def ripe_checker(r, g, b):
     if r > 235 and g > 235 and b > 235:
         return "white"
@@ -50,12 +48,9 @@ def ripe_checker(r, g, b):
         return "black"
 
     return "other"
-
+start_time = time.time()
 
 for i in range(len(filesb)):
-    '''
-    pix = files[i].load()
-    '''
     white_pixels = []
     green_pixels = []
     yellow_pixels = []
@@ -65,7 +60,6 @@ for i in range(len(filesb)):
     width = files[i].width
     height = files[i].height
 
- 
     for x in range(width):
         for y in range(height):
             pixel_tuple = filesb[i][x, y]
@@ -83,45 +77,49 @@ for i in range(len(filesb)):
             if cell == "yellow":
                 yellow_pixels.append(files[i].getpixel((x, y)))
         
-
             if cell == "brown":
                 brown_pixels.append(files[i].getpixel((x, y)))
 
             if cell == "black":
                 black_pixels.append(files[i].getpixel((x, y)))
    
-            
-        #rid of white cells input that or smth
     num_white = len(white_pixels)
-
     num_green = len(green_pixels)
-
     num_yellow = len(yellow_pixels)
-
-
     num_brown = len(brown_pixels)
-
-
     num_black = len(black_pixels)
 
     total_pixels_banana = (width*height) - num_white
-
     concentration_green = num_green / total_pixels_banana
-
     concentration_yellow = num_yellow / total_pixels_banana
-
-
-
     concentration_brown = num_brown / total_pixels_banana
-
-
-
     concentration_black = num_black / total_pixels_banana
+
     print(files [i].filename)
     print("{:.3f}%".format(concentration_green * 100))
     print("{:.3f}%".format(concentration_yellow * 100))
     print("{:.3f}%".format(concentration_brown * 100))
     print("{:.3f}%".format(concentration_black * 100))
+
+    veryunripe.append([("{:.3f}%".format(concentration_black * 100)), files [i].filename])
+    unripe.append([("{:.3f}%".format(concentration_green * 100)), files [i].filename])
+    ripe.append([("{:.3f}%".format(concentration_yellow * 100)), files [i].filename])
+    overripe.append([("{:.3f}%".format(concentration_brown * 100)), files [i].filename])
+
+ripeness = [veryunripe, unripe, ripe, overripe]
+for i in range(len(ripeness)):
+
+    min_index = i
+    for j in range(i+1, len(ripeness)):
+        if ripeness[j][0] < ripeness[min_index][0]:
+            min_index = j
+    ripeness[i], ripeness[min_index] = ripeness[min_index], ripeness[i]
+
+print(ripeness)
+
+end_time = time.time()
+print("Program run time: {:.2f} seconds".format(end_time - start_time))
+
 
             
 
