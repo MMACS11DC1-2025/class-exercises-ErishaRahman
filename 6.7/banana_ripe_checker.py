@@ -107,6 +107,7 @@ for i in range(len(filesb)):
     overripe.append([("{:.3f}%".format(concentration_brown * 100)), files [i].filename])
 
 ripeness = [veryunripe, unripe, ripe, overripe]
+#sort my beauttiful list
 for i in range(len(ripeness)):
 
     min_index = i
@@ -115,10 +116,26 @@ for i in range(len(ripeness)):
             min_index = j
     ripeness[i], ripeness[min_index] = ripeness[min_index], ripeness[i]
 
+#binary search that seraches for a percent value and returns the image name
+#note: this image will return a name if its equal OR HIGHER, due to the specifics of the percents
+def find_image(list_name, percent):
+    start = 0
+    end = len(list_name) - 1
+    while start <= end:
+        mid = (start + end) / 2
+        if list_name[mid][0] == percent:
+            return list_name[mid][1]
+        elif list_name[mid][0] < percent:
+            start = mid + 1
+        else:
+            return list_name[mid][1]
+    return "Not found"
+
 print(ripeness)
+print(find_image(ripeness[0], 60))
 
 end_time = time.time()
-print("Program run time: {:.2f} seconds".format(end_time - start_time))
+print("Program run time: {:.3f} seconds".format(end_time - start_time))
 
 
             
