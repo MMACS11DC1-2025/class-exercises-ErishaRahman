@@ -1,6 +1,18 @@
+# Banana Ripeness Checker
+# This program analyzes images of bananas to determine their ripeness based on color
+#This will be donw by analyzing the pixel colors in the images
+# Blind bakers can use this to sort and find bananas of certain ripeness
+#Ripeness can be represented in various concentrations with four main colors
+# Green - unripe
+# Yellow - ripe
+# Brown - overripe
+# Black - very unripe
+
+
 from PIL import Image
 import time
 
+#open the image files
 file1 = Image.open("6.7/banana1.PNG")
 file2 = Image.open("6.7/banana2.PNG")
 file3 = Image.open("6.7/banana3.PNG")
@@ -11,8 +23,11 @@ file7 = Image.open("6.7/banana7.PNG")
 file8 = Image.open("6.7/banana8.PNG")
 file9 = Image.open("6.7/banana9.PNG")
 file10 = Image.open("6.7/banana10.PNG")
+
+#list for easy access(for loops)
 files = [file1, file2, file3, file4, file5, file6, file7, file8, file9, file10]
 
+#load them for the attributes
 fileb1 = file1.load()
 fileb2 = file2.load()
 fileb3 = file3.load()
@@ -23,11 +38,17 @@ fileb7 = file7.load()
 fileb8 = file8.load()
 fileb9 = file9.load()
 fileb10 = file10.load()
+
+# another for loop list
 filesb = [fileb1, fileb2, fileb3, fileb4, fileb5, fileb6, fileb7, fileb8, fileb9, fileb10]
+
+#lists that will be used for seletion sort and binary search (later!!)
 veryunripe = []
 unripe = []
 ripe = []
 overripe = []
+
+#The function that identifies the color of the pixel
 def ripe_checker(r, g, b):
     if r > 235 and g > 235 and b > 235:
         return "white"
@@ -48,18 +69,25 @@ def ripe_checker(r, g, b):
         return "black"
 
     return "other"
+#start time here cause this is actual running of the code
 start_time = time.time()
 
+#loops the pixel checking proccess 10 times for each image to maximize efficiency
 for i in range(len(filesb)):
+    #all lists start empty each loop so they dont carry over values
     white_pixels = []
     green_pixels = []
     yellow_pixels = []
     green_pixels = []
     brown_pixels = []
     black_pixels = []
+
+    #attributes 
     width = files[i].width
     height = files[i].height
 
+
+    #start of actual pixel checking
     for x in range(width):
         for y in range(height):
             pixel_tuple = filesb[i][x, y]
@@ -67,7 +95,8 @@ for i in range(len(filesb)):
             pixel_g = pixel_tuple[1]
             pixel_b = pixel_tuple[2]
             cell = ripe_checker(pixel_r, pixel_g, pixel_b)
-
+            
+            #append to the correct list based on color
             if cell == "white":
                 white_pixels.append(files[i].getpixel((x, y)))
 
@@ -82,7 +111,8 @@ for i in range(len(filesb)):
 
             if cell == "black":
                 black_pixels.append(files[i].getpixel((x, y)))
-   
+
+   #calculations to determine percentages of each color
     num_white = len(white_pixels)
     num_green = len(green_pixels)
     num_yellow = len(yellow_pixels)
@@ -95,12 +125,7 @@ for i in range(len(filesb)):
     concentration_brown = num_brown / total_pixels_banana
     concentration_black = num_black / total_pixels_banana
 
-    print(files [i].filename)
-    print("{:.3f}%".format(concentration_green * 100))
-    print("{:.3f}%".format(concentration_yellow * 100))
-    print("{:.3f}%".format(concentration_brown * 100))
-    print("{:.3f}%".format(concentration_black * 100))
-
+    #append the results to the correct ripeness list as a perecent string and the filename
     veryunripe.append([("{:.3f}%".format(concentration_black * 100)), files [i].filename])
     unripe.append([("{:.3f}%".format(concentration_green * 100)), files [i].filename])
     ripe.append([("{:.3f}%".format(concentration_yellow * 100)), files [i].filename])
@@ -109,30 +134,36 @@ for i in range(len(filesb)):
 ripeness = [veryunripe, unripe, ripe, overripe]
 #sort my beauttiful list
 for i in range(len(ripeness)):
+    max_index = i
+    for j in range(i + 1, len(ripeness)):
+        if ripeness[j][0] > ripeness[max_index][0]:
+            max_index = j
+    ripeness[i], ripeness[max_index] = ripeness[max_index], ripeness[i]
 
-    min_index = i
-    for j in range(i+1, len(ripeness)):
-        if ripeness[j][0] < ripeness[min_index][0]:
-            min_index = j
-    ripeness[i], ripeness[min_index] = ripeness[min_index], ripeness[i]
+#prints first five values of each ripeness list
+print("for very unripe: " + str((ripeness[0])[:4]))
+print("for unripe: " + str((ripeness[1])[:4]))
+print("for ripe: " + str((ripeness[2])[:4]))
+print("for overripe: " + str((ripeness[3])[:4]))
 
 #binary search that seraches for a percent value and returns the image name
-#note: this image will return a name if its equal OR HIGHER, due to the specifics of the percents
 def find_image(list_name, percent):
-    start = 0
-    end = len(list_name) - 1
-    while start <= end:
-        mid = (start + end) / 2
-        if list_name[mid][0] == percent:
-            return list_name[mid][1]
-        elif list_name[mid][0] < percent:
-            start = mid + 1
-        else:
-            return list_name[mid][1]
-    return "Not found"
+    left = 0
+    right = len(list_name) - 1
+    while left <= right:
+        mid = int((left + right) // 2)
+        value = float(list_name[mid][0][:-1])
 
-print(ripeness)
-print(find_image(ripeness[0], 60))
+        if value == percent:
+            return list_name[mid][1]
+        elif value > percent: 
+            right = mid - 1
+        else:
+            left = mid + 1
+    return "none"
+
+print(ripeness[0])
+print(find_image(ripeness[0], 6.547))
 
 end_time = time.time()
 print("Program run time: {:.3f} seconds".format(end_time - start_time))
