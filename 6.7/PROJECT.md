@@ -36,27 +36,27 @@ Using the new skills in units 5 and 6, you will implement a computer vision algo
 - [10 ] Implement the Binary Search algorithm function yourself to search the sorted list for a specific target score (10 pts)
 
 ### Process
-- [ ] Algorithm design in English: outline the logic using English comments (pseudocode) before each major Python code block (3 pts)
-- [ ] Code clarity: use descriptive variable names unless they are standard loop indices (e.g. x, y) (2 pts)
-- [ ] Use of functions: structure the program using functions to organize it and reduce code duplication (2 pts)
-- [ ] Testing and robustness: include a section in your README describing testing done to ensure each of the tasks works as intended (1 pt)
-- [ ] Performance analysis: include a section in your README describing your code profiling: give an example of the report and discuss what parts of the program take the longest
-- [ ] Challenges faced: include a section in your README describing at least one challenge faced and how you overcame it (2 pts)
+- [ 3] Algorithm design in English: outline the logic using English comments (pseudocode) before each major Python code block (3 pts)
+- [ 2] Code clarity: use descriptive variable names unless they are standard loop indices (e.g. x, y) (2 pts)
+- [ 2] Use of functions: structure the program using functions to organize it and reduce code duplication (2 pts)
+- [1 ] Testing and robustness: include a section in your README describing testing done to ensure each of the tasks works as intended (1 pt)
+- [1 ] Performance analysis: include a section in your README describing your code profiling: give an example of the report and discuss what parts of the program take the longest
+- [ 2] Challenges faced: include a section in your README describing at least one challenge faced and how you overcame it (2 pts)
 
 ### Version Control
-- [ ] Source code is committed to repository on Github with at least 5 meaningful commits on different days prior to deadline (10 pts)
+- [10] Source code is committed to repository on Github with at least 5 meaningful commits on different days prior to deadline (10 pts)
 
 ## **QUALITY CRITERIA**
 ### Code Quality and Efficiency
-- [ ] Code quality: Clean, readable structure (2 pts)
-- [ ] Efficiency: Evidence of thinking about algorithmic complexity throughout the code (2 pts)
-- [ ] The program handles potential errors and edge cases effectively (2 pts)
-- [ ] Documentation polish: README is clear, concise, free of typos; also, code comments explain why decisions were made. (1 pt)
+- [ 2] Code quality: Clean, readable structure (2 pts)
+- [ 2] Efficiency: Evidence of thinking about algorithmic complexity throughout the code (2 pts)
+- [2 ] The program handles potential errors and edge cases effectively (2 pts)
+- [ 1] Documentation polish: README is clear, concise, free of typos; also, code comments explain why decisions were made. (1 pt)
 
 ### Creativity and Originality
-- [ ] The chosen theme and visual feature are unique, interesting, and insightful (2 pts)
-- [ ] Feature detection uses a more advanced process, such as pre-processing the image, using multiple pixels, or using statistical approaches to detect features (4 points)
-- [ ] Captured feature involves a real-world use-case. References a real paper, report, or dataset supporting decisions for detecting feature (4 points)
+- [2 ] The chosen theme and visual feature are unique, interesting, and insightful (2 pts)
+- [idk ] Feature detection uses a more advanced process, such as pre-processing the image, using multiple pixels, or using statistical approaches to detect features (4 points)
+- [2 ] Captured feature involves a real-world use-case. References a real paper, report, or dataset supporting decisions for detecting feature (4 points)
 
 ## **SUBMISSION REQUIREMENTS**
 

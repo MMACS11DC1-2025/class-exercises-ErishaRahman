@@ -1,13 +1,3 @@
-# Banana Ripeness Checker
-# This program analyzes images of bananas to determine their ripeness based on color
-#This will be donw by analyzing the pixel colors in the images
-# Blind bakers can use this to sort and find bananas of certain ripeness
-#Ripeness can be represented in various concentrations with four main colors
-# Green - unripe
-# Yellow - ripe
-# Brown - overripe
-# Black - very unripe
-
 
 from PIL import Image
 import time
@@ -132,7 +122,8 @@ for i in range(len(filesb)):
     overripe.append([("{:.3f}%".format(concentration_brown * 100)), files [i].filename])
 
 ripeness = [veryunripe, unripe, ripe, overripe]
-#sort my beauttiful lists
+
+#sort my beauttiful lists (selection sort)
 for rows in range(len(ripeness)):
     for i in range(len(ripeness[rows])):
         max_index = i
@@ -143,17 +134,11 @@ for rows in range(len(ripeness)):
                 max_score = float(ripeness[rows][j][0][:-1])
         ripeness[rows][i], ripeness[rows][max_index] = ripeness[rows][max_index], ripeness[rows][i]
 
-#prints first five values of each ripeness list
-print("for very unripe: " + str((ripeness[0])[:5]))
-print("for unripe: " + str((ripeness[1])[:5]))
-print("for ripe: " + str((ripeness[2])[:5]))
-print("for overripe: " + str((ripeness[3])[:5]))
-
 #binary search that seraches for a percent value and returns the image name
 def find_image(list_name, percent):
     left = 0
     right = len(list_name) - 1
-    while left >= right:
+    while left <= right:
         mid = int((left + right) // 2)
         value = float(list_name[mid][0][:-1])
         print(value)
@@ -166,10 +151,17 @@ def find_image(list_name, percent):
             right = mid - 1
     return "none"
 
-print(find_image(ripeness[0], 65.375))
-print(ripeness[0])
+#prints first five values of each ripeness list
+print("for very unripe: " + str((ripeness[0])[:5]))
+print("for unripe: " + str((ripeness[1])[:5]))
+print("for ripe: " + str((ripeness[2])[:5]))
+print("for overripe: " + str((ripeness[3])[:5]))
 
+#binary search test
+print(find_image(ripeness[0], 65.375))
 end_time = time.time()
+
+#finish time here
 print("Program run time: {:.3f} seconds".format(end_time - start_time))
 
 
