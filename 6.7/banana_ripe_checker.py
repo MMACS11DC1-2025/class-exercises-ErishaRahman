@@ -132,38 +132,42 @@ for i in range(len(filesb)):
     overripe.append([("{:.3f}%".format(concentration_brown * 100)), files [i].filename])
 
 ripeness = [veryunripe, unripe, ripe, overripe]
-#sort my beauttiful list
-for i in range(len(ripeness)):
-    max_index = i
-    for j in range(i + 1, len(ripeness)):
-        if ripeness[j][0] > ripeness[max_index][0]:
-            max_index = j
-    ripeness[i], ripeness[max_index] = ripeness[max_index], ripeness[i]
+#sort my beauttiful lists
+for rows in range(len(ripeness)):
+    for i in range(len(ripeness[rows])):
+        max_index = i
+        max_score = float(ripeness[rows][i][0][:-1])
+        for j in range(i + 1, len(ripeness[rows])):
+            if float(ripeness[rows][j][0][:-1]) > (max_score):
+                max_index = j
+                max_score = float(ripeness[rows][j][0][:-1])
+        ripeness[rows][i], ripeness[rows][max_index] = ripeness[rows][max_index], ripeness[rows][i]
 
 #prints first five values of each ripeness list
-print("for very unripe: " + str((ripeness[0])[:4]))
-print("for unripe: " + str((ripeness[1])[:4]))
-print("for ripe: " + str((ripeness[2])[:4]))
-print("for overripe: " + str((ripeness[3])[:4]))
+print("for very unripe: " + str((ripeness[0])[:5]))
+print("for unripe: " + str((ripeness[1])[:5]))
+print("for ripe: " + str((ripeness[2])[:5]))
+print("for overripe: " + str((ripeness[3])[:5]))
 
 #binary search that seraches for a percent value and returns the image name
 def find_image(list_name, percent):
     left = 0
     right = len(list_name) - 1
-    while left <= right:
+    while left >= right:
         mid = int((left + right) // 2)
         value = float(list_name[mid][0][:-1])
+        print(value)
 
         if value == percent:
             return list_name[mid][1]
         elif value > percent: 
-            right = mid - 1
-        else:
             left = mid + 1
+        else:
+            right = mid - 1
     return "none"
 
+print(find_image(ripeness[0], 65.375))
 print(ripeness[0])
-print(find_image(ripeness[0], 6.547))
 
 end_time = time.time()
 print("Program run time: {:.3f} seconds".format(end_time - start_time))
